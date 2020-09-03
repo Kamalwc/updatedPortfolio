@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Landing from './components/Landing'
+import Projects from './components/Projects'
+import Header from './common/Header'
+const background = {
+  background: `rgb(2,0,36)`,
+  background: `linear-gradient(90deg, rgba(2,0,36,1) 43%, rgba(10,69,167,1) 100%)`
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div style={background}>
+        <Header/>
+        <Route exact path="/" component = {Landing} />
+        <Route exact path="/projects" component = {Projects} />
+      </div>
+    </Router>
   );
 }
 
